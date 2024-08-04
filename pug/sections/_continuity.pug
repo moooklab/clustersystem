@@ -1,0 +1,18 @@
+section.continuity
+    div.container
+        h2 #[span Готовые] сценарии.
+
+        div.swiper
+            div.swiper-wrapper
+                -for(x=1; x<=10; x++)
+                    div.swiper-slide
+                        div.preview
+                            img(src="images/1.webp", alt="")
+                        div.text
+                            h3 Романтический вечер
+                            span Выключается верхнее основное освещение, а #[b атмосферу] задают #[b интерьерные подсветки] и светильники с #[b регулируемой яркостью]. Цветная подсветка #[b добавляет настроение] для просмотра #[b любимого фильма] или неторопливой беседы.
+            div.swiper-control
+                div.swiper-pagination
+                div.swiper-navigation
+                    div.arrow: include ../../images/arrow.svg
+                    div.arrow: include ../../images/arrow.svg

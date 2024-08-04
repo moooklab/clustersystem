@@ -1,0 +1,17 @@
+dialog(data-modal-name="get_consult")
+    <? echo file_get_contents('images/cross.svg'); ?>
+    div.container
+        h1 Попап 1
+
+dialog(data-modal-name='video')
+    div.container
+        <? echo file_get_contents('images/cross.svg'); ?>
+        iframe(frameborder="0", allowfullscreen, allow="autoplay")
+    
+dialog(data-modal-name="lightbox")
+    <? echo file_get_contents('images/cross.svg'); ?>
+    div.swiper
+        div.swiper-wrapper
+    div.swiper-navigation
+        <? echo file_get_contents('images/swiper_arrow.svg'); ?>
+        <? echo file_get_contents('images/swiper_arrow.svg'); ?>

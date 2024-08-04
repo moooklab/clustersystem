@@ -1,0 +1,39 @@
+section.projects
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+    background: $black
+    color: $white
+
+    h2
+        color: $white
+        grid-column: breakout
+        margin-bottom: var(--big-gap)
+        span
+            color: $footer-gray
+
+    div.swiper
+        width: 100%
+        min-width: 0
+        overflow: visible
+
+        div.swiper-slide
+            align-content: center
+            padding-bottom: var(--big-gap)
+            &.swiper-slide-active
+                a.project
+                    opacity: 1
+                    // div.preview
+                    //     transition-property: all
+                    //     transition-duration: 1s
+                    //     aspect-ratio: 16 / 9
+
+            a.project
+                opacity: 0.5
+                transition: all 1s
+                div.preview
+                    transition-property: all
+                    transition-duration: 1s
+                    // aspect-ratio: 21 / 9
+                    aspect-ratio: 16 / 9
+                    +screen(s)
+                        aspect-ratio: 1 / 1

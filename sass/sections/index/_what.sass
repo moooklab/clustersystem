@@ -1,0 +1,33 @@
+section.what
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: var(--big-gap)
+
+    div.text
+        display: grid
+        grid-gap: var(--medium-gap)
+
+    div.image
+        position: relative
+        img
+            width: 100%
+
+    small
+        display: block
+        width: max-content
+        border-radius: 999px
+        padding: 10px 20px
+        background: linear-gradient(90deg, #06f 0%, #7000ff 100%)
+        color: white
+
+        &:nth-child(1)
+            position: absolute
+            top: 50%
+            left: 10%
+        &:nth-child(2)
+            position: absolute
+            top: 30%
+            right: 10%

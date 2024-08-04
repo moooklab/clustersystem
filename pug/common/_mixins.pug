@@ -1,0 +1,20 @@
+mixin project(image, title, text, area, price)
+    a(href="index.html").project
+        div.preview
+            img(src=image, alt="")
+            div.tags
+                small Освещение
+                small Электрокарнизы
+                small Климат-контроль
+                small Сигнализация
+                small Видеонаблюдение
+        div.description
+            strong !{title}
+            span= text
+        div.details
+            div.area
+                small Площадь объекта
+                strong= area
+            div.area
+                small Стоимость
+                strong= price

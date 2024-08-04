@@ -1,0 +1,44 @@
+section.scheme
+
+    div.container
+        display: grid
+        grid-gap: var(--big-gap)
+        margin-top: var(--section-gap)
+        margin-bottom: var(--section-gap)
+
+    div.list
+        counter-reset: step
+        div.step
+            position: relative
+            padding: var(--big-gap)
+            border: 1px dashed $footer-gray
+            border-radius: 24px
+            &::before
+                content: counter(step)
+                counter-increment: step
+                width: 48px
+                height: 48px
+                display: grid
+                align-items: center
+                justify-items: center
+                position: absolute
+                top: 50%
+                line-height: 1em
+                transform: translate(-50%, -50%)
+                background-color: white
+                border: 1px dashed $footer-gray
+                border-radius: 100px
+
+            &:nth-child(2n-1)
+                border-left: unset
+                border-top-left-radius: unset
+                border-bottom-left-radius: unset
+                &:before
+                    left: 100%
+
+            &:nth-child(2n)
+                border-right: unset
+                border-top-right-radius: unset
+                border-bottom-right-radius: unset
+                &:before
+                    left: 0

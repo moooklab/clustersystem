@@ -1,0 +1,100 @@
+section.services
+    background: $light-gradient
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        grid-column: breakout
+        display: grid
+        grid-gap: var(--big-gap)
+
+    div.grid
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: var(--small-gap)
+        +screen(1460px)
+            grid-template-columns: 1fr
+
+    div.service
+        display: grid
+        grid-template-rows: 1fr max-content
+        grid-gap: var(--gap)
+        box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05)
+        background: $white
+        padding: var(--gap)
+        border-radius: 8px
+
+        div.description
+            display: grid
+            align-items: center
+            grid-template-rows: max-content 1fr max-content
+            grid-gap: var(--gap)
+            +screen(1460px)
+                grid-template-rows: max-content max-content
+                grid-template-columns: max-content 1fr
+            +screen(s)
+                grid-template-rows: max-content 1fr max-content
+                grid-template-columns: 1fr
+
+            div.image
+                img
+                    width: 360px
+                    margin-top: calc(var(--gap) * -1)
+                    margin-left: calc(var(--gap) * -1)
+                    +screen(m)
+                        width: 240px
+
+            div.text
+                display: grid
+                align-content: start
+                grid-gap: var(--small-gap)
+
+            a.more
+                display: grid
+                align-items: center
+                justify-content: center
+                justify-self: end
+                grid-template-columns: max-content max-content
+                width: max-content
+                color: $white
+                background: $dark-gray
+                border-radius: 20px
+                height: 40px
+                min-width: 40px
+                +screen(1460px)
+                    grid-column: 2 span
+                +screen(s)
+                    grid-column: 1 span
+
+                small
+                    text-transform: lowercase
+                    display: none
+                svg
+                    path
+                        stroke: $white
+
+        div.list
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            grid-gap: 10px
+            +screen(1460px)
+                grid-template-columns: repeat(4, 1fr)
+            +screen(m)
+                grid-template-columns: repeat(3, 1fr)
+            +screen(s)
+                grid-template-columns: 1fr
+
+            div.item
+                display: grid
+                align-content: start
+                justify-items: center
+                grid-gap: 20px
+                padding: var(--gap)
+                border-radius: 8px
+                border: 1px dashed $footer-gray
+                text-align: center
+                color: $dark-gray
+                +screen(s)
+                    grid-template-columns: max-content 1fr
+                    justify-items: start
+                    text-align: left
