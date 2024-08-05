@@ -2,12 +2,117 @@ header
     position: fixed
     top: 0
     left: 0
-    width: 90px
+    width: max-content
     height: 100vh
     background: linear-gradient(180deg, #313840 0%, #252a2f 100%)
     z-index: 999
+    grid-template-columns: 1fr
+    padding: var(--gap) var(--small-gap)
+    transition: all .5s
     +screen(l)
-        position: sticky
-        height: 60px
+        height: auto
+        background: unset
+        background-color: $dark-gray
         width: 100%
-        background: $dark-gradient
+        padding: var(--gap)
+        margin-bottom: -90px
+
+    div.container
+        display: grid
+        grid-template-rows: max-content 1fr max-content
+        grid-column: unset
+        +screen(l)
+            align-items: center
+            grid-template-columns: 1fr max-content
+            grid-template-rows: 1fr
+
+    div.contacts
+        display: grid
+        grid-auto-flow: row
+        grid-auto-rows: max-content
+        justify-items: center
+        grid-gap: var(--gap)
+        +screen(l)
+            grid-auto-flow: column
+            grid-template-columns: max-content 1fr
+
+        a.logotype
+            display: block
+            img.symbol
+                display: block
+                +screen(l)
+                    display: none
+            img.full
+                display: none
+                width: 140px
+                +screen(l)
+                    display: block
+
+        a
+            display: grid
+            align-items: center
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            grid-gap: 15px
+            color: $white
+
+            &.email
+                +screen(l)
+                    display: none
+
+            &.phone
+                +screen(s)
+                    display: none
+
+        span
+            display: none
+            +screen(l)
+                display: block
+
+    div.menu
+        display: grid
+        align-items: center
+        justify-items: center
+
+        div.icon
+            cursor: pointer
+            display: grid
+            align-content: center
+            justify-items: end
+            grid-gap: 5px
+            padding: 20px 0
+            +screen(l)
+                padding: 10px 0
+
+            div:first-child
+                width: 40px
+                height: 2px
+                background-color: $white
+            div:last-child
+                width: 30px
+                height: 2px
+                background-color: $white
+                transition: all .2s
+
+            &:hover
+                div:last-child
+                    width: 40px
+
+    div.buttons
+        display: grid
+        grid-gap: 10px
+        justify-self: center
+        +screen(l)
+            display: none
+        div.button
+            display: grid
+            align-items: center
+            justify-items: center
+            border-radius: 4px
+            border: 1px solid $gray
+            width: 48px
+            height: 48px
+
+    &.transparent
+        +screen(l)
+            background-color: transparent

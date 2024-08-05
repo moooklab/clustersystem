@@ -1,6 +1,6 @@
 section.main {
   background: #1b1d21;
-  padding-top: var(--section-gap);
+  padding-top: calc(var(--section-gap) + var(--header));
   padding-bottom: var(--gap);
   min-height: 100vh;
   z-index: 1;
@@ -9,7 +9,7 @@ section.main div.container {
   display: grid;
   grid-template-rows: 1fr -webkit-max-content;
   grid-template-rows: 1fr max-content;
-  grid-gap: var(--big-gap);
+  grid-gap: var(--section-gap);
 }
 section.main div.preview {
   position: absolute;
@@ -46,6 +46,7 @@ section.main div.intro {
   grid-gap: var(--big-gap);
   height: 100%;
   z-index: 2;
+  color: #fff;
 }
 section.main div.intro div.text {
   display: grid;
@@ -60,6 +61,9 @@ section.main div.intro div.text h1 span, section.main div.intro div.text h3 span
 section.main div.intro div.title {
   display: grid;
   grid-gap: 10px;
+}
+section.main div.advantages {
+  position: relative;
 }
 section.main div.advantages div.list {
   position: relative;
@@ -109,11 +113,14 @@ section.main div.advantages div.item {
     text-align: center;
   }
 }
+section.main div.advantages div.item svg path {
+  stroke: #a4adba;
+}
 section.main div.advantages div.item:not(:last-child) {
   border-right: 1px dashed rgba(164, 173, 186, 0.5);
   padding-right: var(--gap);
 }
-@media (max-width: 960px) {
+@media (max-width: 640px) {
   section.main div.advantages div.item:not(:last-child) {
     border-right: unset;
     padding-right: unset;
@@ -128,6 +135,60 @@ section.main div.advantages div.item div.text {
 }
 section.main div.advantages div.item div.text span {
   color: #fff;
+}
+section.main div.advantages::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  height: calc(50% + var(--gap));
+  width: 100vw;
+  background: white;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+@media (max-width: 640px) {
+  section.main div.advantages::after {
+    top: calc(var(--gap) * -1);
+    height: calc(100% + var(--gap) * 2);
+  }
+}
+section.main div.params {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: var(--medium-gap) var(--gap);
+}
+@media (max-width: 640px) {
+  section.main div.params {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+section.main div.params div.param {
+  display: grid;
+  grid-gap: 10px;
+}
+section.main div.params div.param small {
+  color: #a4adba;
+}
+section.main div.params div.param h2 {
+  font-size: 40px;
+  color: white;
+}
+@media (max-width: 960px) {
+  section.main div.params div.param h2 {
+    font-size: 30px;
+  }
 }
 
 section.what {
@@ -307,16 +368,22 @@ section.services div.service div.list div.item {
   grid-gap: 20px;
   padding: var(--gap);
   border-radius: 8px;
-  border: 1px dashed #a4adba;
   text-align: center;
   color: #242629;
+  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='rgb(113, 125, 141)' stroke-width='1' stroke-dasharray='4%2c 4' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
 }
 @media (max-width: 640px) {
   section.services div.service div.list div.item {
     grid-template-columns: -webkit-max-content 1fr;
     grid-template-columns: max-content 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     justify-items: start;
     text-align: left;
+  }
+  section.services div.service div.list div.item br {
+    display: none;
   }
 }
 
@@ -385,7 +452,11 @@ section.managment div.item:nth-child(2n-1) div.image img {
   right: 0;
 }
 section.managment div.item:not(:last-child) {
-  border-bottom: 1px dashed #a4adba;
+  background-image: -webkit-gradient(linear, left top, right top, from(#A4ADBA), color-stop(50%, #A4ADBA), color-stop(50%, white), to(white));
+  background-image: linear-gradient(to right, #A4ADBA 0%, #A4ADBA 50%, white 50%, white 100%);
+  background-position: bottom;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
 }
 
 section.continuity {
@@ -454,11 +525,12 @@ section.continuity div.swiper div.swiper-slide div.text {
   position: absolute;
   top: 0px;
   left: 0px;
-  bottom: 80px;
+  bottom: calc(var(--medium-gap) + 40px);
   max-width: 640px;
   z-index: 1;
   color: #a4adba;
   padding: var(--big-gap);
+  padding-bottom: var(--gap) !important;
 }
 @media (max-width: 960px) {
   section.continuity div.swiper div.swiper-slide div.text {
@@ -468,6 +540,7 @@ section.continuity div.swiper div.swiper-slide div.text {
 @media (max-width: 640px) {
   section.continuity div.swiper div.swiper-slide div.text {
     padding: var(--gap);
+    bottom: calc(var(--gap) + 40px);
   }
 }
 section.continuity div.swiper div.swiper-slide div.text h3, section.continuity div.swiper div.swiper-slide div.text b {
@@ -475,22 +548,13 @@ section.continuity div.swiper div.swiper-slide div.text h3, section.continuity d
 }
 section.continuity div.swiper-control {
   position: absolute;
-  padding-left: var(--big-gap);
-  padding-right: var(--big-gap);
-  padding-bottom: 40px;
+  padding: var(--medium-gap);
   bottom: 0px;
   right: 0px;
 }
-@media (max-width: 960px) {
-  section.continuity div.swiper-control {
-    padding-left: var(--medium-gap);
-    padding-right: var(--medium-gap);
-  }
-}
 @media (max-width: 640px) {
   section.continuity div.swiper-control {
-    padding-left: var(--gap);
-    padding-right: var(--gap);
+    padding: var(--gap);
   }
 }
 
@@ -588,6 +652,12 @@ section.showroom div.pins div.pin a {
   grid-gap: 10px;
   color: #a4adba;
 }
+section.showroom div.pins div.pin a:hover {
+  color: white;
+}
+section.showroom div.pins div.pin a:hover svg path {
+  stroke: #fff;
+}
 section.showroom div.pins div.pin a svg path {
   stroke: #a4adba;
 }
@@ -645,12 +715,25 @@ section.scheme div.container {
 }
 section.scheme div.list {
   counter-reset: step;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 section.scheme div.list div.step {
+  display: grid;
+  grid-gap: var(--small-gap);
   position: relative;
   padding: var(--big-gap);
-  border: 1px dashed #a4adba;
   border-radius: 24px;
+  z-index: 1;
+  background-image: -webkit-gradient(linear, left top, right top, from(#A4ADBA), color-stop(50%, #A4ADBA), color-stop(50%, white), to(white));
+  background-image: linear-gradient(to right, #A4ADBA 0%, #A4ADBA 50%, white 50%, white 100%);
+  background-position: top;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
+section.scheme div.list div.step strong, section.scheme div.list div.step span {
+  position: relative;
+  z-index: 4;
 }
 section.scheme div.list div.step::before {
   content: counter(step);
@@ -668,25 +751,39 @@ section.scheme div.list div.step::before {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background-color: white;
-  border: 1px dashed #a4adba;
-  border-radius: 100px;
+  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='48' ry='48' stroke='rgb(113, 125, 141)' stroke-width='1' stroke-dasharray='4%2c 4' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e") white;
+  border-radius: 48px;
+  z-index: 4;
 }
-section.scheme div.list div.step:nth-child(2n-1) {
-  border-left: unset;
-  border-top-left-radius: unset;
-  border-bottom-left-radius: unset;
+section.scheme div.list div.step div.border {
+  position: absolute;
+  top: 0;
+  width: 48px;
+  height: 100%;
+  background: red;
+  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='rgb(113, 125, 141)' stroke-width='1' stroke-dasharray='4%2c 4' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+  border-radius: 24px;
+}
+section.scheme div.list div.step:last-child {
+  background-image: -webkit-gradient(linear, left top, right top, from(#A4ADBA), color-stop(50%, #A4ADBA), color-stop(50%, white), to(white)), -webkit-gradient(linear, left top, right top, from(#A4ADBA), color-stop(50%, #A4ADBA), color-stop(50%, white), to(white));
+  background-image: linear-gradient(to right, #A4ADBA 0%, #A4ADBA 50%, white 50%, white 100%), linear-gradient(to right, #A4ADBA 0%, #A4ADBA 50%, white 50%, white 100%);
+  background-position: top, bottom;
 }
 section.scheme div.list div.step:nth-child(2n-1):before {
   left: 100%;
 }
-section.scheme div.list div.step:nth-child(2n) {
-  border-right: unset;
-  border-top-right-radius: unset;
-  border-bottom-right-radius: unset;
+section.scheme div.list div.step:nth-child(2n-1) div.border {
+  right: 0;
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
 section.scheme div.list div.step:nth-child(2n):before {
   left: 0;
+}
+section.scheme div.list div.step:nth-child(2n) div.border {
+  left: 0;
+  -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+          clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
 }
 
 section.faq {

@@ -50,28 +50,24 @@ section.continuity
                 position: absolute
                 top: 0px
                 left: 0px
-                bottom: 80px
+                bottom: calc(var(--medium-gap) + 40px)
                 max-width: 640px
                 z-index: 1
                 color: $footer-gray
                 padding: var(--big-gap)
+                padding-bottom: var(--gap) !important
                 +screen(m)
                     padding: var(--medium-gap)
                 +screen(s)
                     padding: var(--gap)
+                    bottom: calc(var(--gap) + 40px)
                 h3, b
                     color: $white
 
     div.swiper-control
         position: absolute
-        padding-left: var(--big-gap)
-        padding-right: var(--big-gap)
-        padding-bottom: 40px
+        padding: var(--medium-gap)
         bottom: 0px
         right: 0px
-        +screen(m)
-            padding-left: var(--medium-gap)
-            padding-right: var(--medium-gap)
         +screen(s)
-            padding-left: var(--gap)
-            padding-right: var(--gap)
+            padding: var(--gap)

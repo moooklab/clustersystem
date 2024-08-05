@@ -1,0 +1,72 @@
+section.callback
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        align-items: center
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: var(--big-gap)
+        grid-column: breakout
+        +screen(s)
+            grid-template-columns: 1fr
+
+    div.form
+        display: grid
+        grid-gap: var(--big-gap)
+
+        div.text
+            display: grid
+            grid-gap: var(--medium-gap)
+
+        div.inputs
+            display: grid
+            grid-gap: var(--gap)
+
+        div.row
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            grid-gap: var(--gap)
+            +screen(l)
+                grid-template-columns: 1fr
+
+        form
+            display: grid
+            grid-gap: var(--big-gap)
+
+        small
+            a
+                font-size: inherit
+                font-weight: inherit
+                color: $dark-gray
+                text-decoration: underline
+                &:hover
+                    text-decoration: none
+
+    div.image
+        position: relative
+        height: 100%
+        width: 100%
+        +screen(s)
+            aspect-ratio: 4 / 3
+        img
+            position: absolute
+            bottom: calc(var(--section-gap) * -1)
+            left: 0
+            width: 100%
+            height: calc(100% + var(--section-gap))
+            min-height: 960px
+            object-fit: contain
+            object-position: left bottom
+            +screen(l)
+                height: 100%
+                min-height: unset
+                max-height: 720px
+                object-fit: cover
+            +screen(s)
+                height: calc(100% + var(--section-gap))
+                left: 10%
+                object-fit: contain
+                object-position: center bottom
+                min-height: unset
+                max-height: unset

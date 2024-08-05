@@ -1,0 +1,28 @@
+section.stages
+    padding-bottom: var(--section-gap)
+    background: $light-gradient
+
+    div.container
+        display: grid
+        grid-gap: var(--big-gap)
+        grid-column: breakout
+
+    div.tabs
+        display: grid
+        grid-gap: var(--big-gap)
+
+    div.swiper
+        width: 100%
+        min-width: 0
+
+    div.tabs_contents
+        div.swiper-slide
+            display: grid
+            grid-gap: var(--big-gap)
+            div.text
+                max-width: 960px
+            img
+                width: 100%
+                aspect-ratio: 16 / 9
+                object-fit: cover
+                object-position: center center

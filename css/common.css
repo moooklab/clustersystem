@@ -114,6 +114,12 @@ img {
   --small-gap: 20px;
   --medium-gap: 40px;
   --section-gap: 120px;
+  --header: 0px;
+}
+@media (max-width: 1280px) {
+  :root {
+    --header: 95px;
+  }
 }
 @media (max-width: 960px) {
   :root {
@@ -122,6 +128,7 @@ img {
     --small-gap: 10px;
     --medium-gap: 30px;
     --section-gap: 80px;
+    --header: 75px;
   }
 }
 
@@ -138,7 +145,7 @@ img {
 }
 
 html {
-  padding-left: 90px;
+  padding-left: 88px;
 }
 @media (max-width: 1280px) {
   html {
@@ -347,6 +354,7 @@ a.project div.details > * {
 }
 
 button, a.button {
+  position: relative;
   cursor: pointer;
   font-size: 18px;
   text-align: center;
@@ -359,58 +367,111 @@ button, a.button {
   width: -moz-max-content;
   width: max-content;
 }
+@media (max-width: 640px) {
+  button, a.button {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
+button div.borders, a.button div.borders {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
 button div.borders div, a.button div.borders div {
   position: absolute;
   height: 12px;
   width: 12px;
+  border-width: 0px;
+  border-color: #fff;
+  border-style: solid;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 button div.borders div:nth-child(1), a.button div.borders div:nth-child(1) {
   top: 0;
   left: 0;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
+  border-top-width: 2px;
+  border-left-width: 2px;
   -webkit-animation: reverseWidthAnimation 0.5s forwards;
           animation: reverseWidthAnimation 0.5s forwards;
 }
 button div.borders div:nth-child(2), a.button div.borders div:nth-child(2) {
   top: 0;
   right: 0;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
+  border-top-width: 2px;
+  border-right-width: 2px;
   -webkit-animation: reverseHeightAnimation 0.5s forwards;
           animation: reverseHeightAnimation 0.5s forwards;
 }
 button div.borders div:nth-child(3), a.button div.borders div:nth-child(3) {
   bottom: 0;
   right: 0;
-  border-bottom: 2px solid #fff;
-  border-right: 2px solid #fff;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
   -webkit-animation: reverseWidthAnimation 0.5s forwards;
           animation: reverseWidthAnimation 0.5s forwards;
 }
 button div.borders div:nth-child(4), a.button div.borders div:nth-child(4) {
   bottom: 0;
   left: 0;
-  border-bottom: 2px solid #fff;
-  border-left: 2px solid #fff;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
   -webkit-animation: reverseHeightAnimation 0.5s forwards;
           animation: reverseHeightAnimation 0.5s forwards;
 }
-button:hover div.borders div:nth-child(1), a.button:hover div.borders div:nth-child(1) {
-  -webkit-animation: widthAnimation 0.5s forwards;
-          animation: widthAnimation 0.5s forwards;
+button:hover div.borders, a.button:hover div.borders {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
-button:hover div.borders div:nth-child(2), a.button:hover div.borders div:nth-child(2) {
-  -webkit-animation: heightAnimation 0.5s forwards;
-          animation: heightAnimation 0.5s forwards;
+button:hover div.borders div, a.button:hover div.borders div {
+  width: 100%;
+  height: 100%;
 }
-button:hover div.borders div:nth-child(3), a.button:hover div.borders div:nth-child(3) {
-  -webkit-animation: widthAnimation 0.5s forwards;
-          animation: widthAnimation 0.5s forwards;
+button.light, a.button.light {
+  background: rgba(164, 173, 186, 0.5);
+  color: #242629;
 }
-button:hover div.borders div:nth-child(4), a.button:hover div.borders div:nth-child(4) {
-  -webkit-animation: heightAnimation 0.5s forwards;
-          animation: heightAnimation 0.5s forwards;
+button.light div.borders div, a.button.light div.borders div {
+  border-color: #242629 !important;
+}
+
+input {
+  padding: var(--small-gap) 0;
+  border-bottom: 1px solid #a4adba;
+  color: #242629;
+}
+input::-webkit-input-placeholder {
+  color: #646b78;
+  opacity: 0.5;
+}
+input::-moz-placeholder {
+  color: #646b78;
+  opacity: 0.5;
+}
+input:-ms-input-placeholder {
+  color: #646b78;
+  opacity: 0.5;
+}
+input::-ms-input-placeholder {
+  color: #646b78;
+  opacity: 0.5;
+}
+input::placeholder {
+  color: #646b78;
+  opacity: 0.5;
+}
+input:focus {
+  border-bottom-color: #242629;
+}
+input:valid {
+  border-bottom-color: green;
 }
 
 div.swiper-control {
@@ -485,23 +546,196 @@ div.swiper-control div.swiper-pagination span.swiper-pagination-bullet-active {
   opacity: 1;
 }
 
+div.swiper.tabs_captions {
+  overflow: visible;
+}
+div.swiper.tabs_captions div.swiper-wrapper {
+  border-bottom: 1px solid #a4adba;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+div.swiper.tabs_captions div.swiper-slide {
+  cursor: pointer;
+  width: -webkit-max-content !important;
+  width: -moz-max-content !important;
+  width: max-content !important;
+  padding: var(--small-gap) 0;
+}
+div.swiper.tabs_captions div.swiper-slide.swiper-slide-thumb-active {
+  color: #242629;
+  border-bottom: 1px solid #242629;
+}
+div.swiper.tabs_captions div.swiper-slide:last-child {
+  margin-right: 0 !important;
+}
+
 header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 90px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(#313840), to(#252a2f));
   background: linear-gradient(180deg, #313840 0%, #252a2f 100%);
   z-index: 999;
+  grid-template-columns: 1fr;
+  padding: var(--gap) var(--small-gap);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 @media (max-width: 1280px) {
   header {
-    position: sticky;
-    height: 60px;
+    height: auto;
+    background: unset;
+    background-color: #242629;
     width: 100%;
-    background: -webkit-gradient(linear, left top, right top, from(#313840), to(#252a2f));
-    background: linear-gradient(90deg, #313840 0%, #252a2f 100%);
+    padding: var(--gap);
+    margin-bottom: -90px;
+  }
+}
+header div.container {
+  display: grid;
+  grid-template-rows: -webkit-max-content 1fr -webkit-max-content;
+  grid-template-rows: max-content 1fr max-content;
+  grid-column: unset;
+}
+@media (max-width: 1280px) {
+  header div.container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    grid-template-columns: 1fr -webkit-max-content;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: 1fr;
+  }
+}
+header div.contacts {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+  justify-items: center;
+  grid-gap: var(--gap);
+}
+@media (max-width: 1280px) {
+  header div.contacts {
+    grid-auto-flow: column;
+    grid-template-columns: -webkit-max-content 1fr;
+    grid-template-columns: max-content 1fr;
+  }
+}
+header div.contacts a.logotype {
+  display: block;
+}
+header div.contacts a.logotype img.symbol {
+  display: block;
+}
+@media (max-width: 1280px) {
+  header div.contacts a.logotype img.symbol {
+    display: none;
+  }
+}
+header div.contacts a.logotype img.full {
+  display: none;
+  width: 140px;
+}
+@media (max-width: 1280px) {
+  header div.contacts a.logotype img.full {
+    display: block;
+  }
+}
+header div.contacts a {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 15px;
+  color: #fff;
+}
+@media (max-width: 1280px) {
+  header div.contacts a.email {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  header div.contacts a.phone {
+    display: none;
+  }
+}
+header div.contacts span {
+  display: none;
+}
+@media (max-width: 1280px) {
+  header div.contacts span {
+    display: block;
+  }
+}
+header div.menu {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+header div.menu div.icon {
+  cursor: pointer;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: end;
+  grid-gap: 5px;
+  padding: 20px 0;
+}
+@media (max-width: 1280px) {
+  header div.menu div.icon {
+    padding: 10px 0;
+  }
+}
+header div.menu div.icon div:first-child {
+  width: 40px;
+  height: 2px;
+  background-color: #fff;
+}
+header div.menu div.icon div:last-child {
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+header div.menu div.icon:hover div:last-child {
+  width: 40px;
+}
+header div.buttons {
+  display: grid;
+  grid-gap: 10px;
+  justify-self: center;
+}
+@media (max-width: 1280px) {
+  header div.buttons {
+    display: none;
+  }
+}
+header div.buttons div.button {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  border-radius: 4px;
+  border: 1px solid #646b78;
+  width: 48px;
+  height: 48px;
+}
+@media (max-width: 1280px) {
+  header.transparent {
+    background-color: transparent;
   }
 }
 

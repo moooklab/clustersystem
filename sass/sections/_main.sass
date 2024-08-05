@@ -1,6 +1,6 @@
 section.main
     background: $black
-    padding-top: var(--section-gap)
+    padding-top: calc(var(--section-gap) + var(--header))
     padding-bottom: var(--gap)
     min-height: 100vh
     z-index: 1
@@ -8,7 +8,7 @@ section.main
     div.container
         display: grid
         grid-template-rows: 1fr max-content
-        grid-gap: var(--big-gap)
+        grid-gap: var(--section-gap)
 
     div.preview
         position: absolute
@@ -41,6 +41,7 @@ section.main
         grid-gap: var(--big-gap)
         height: 100%
         z-index: 2
+        color: $white
         div.text
             display: grid
             grid-gap: var(--medium-gap)
@@ -53,6 +54,7 @@ section.main
             grid-gap: 10px
 
     div.advantages
+        position: relative
         div.list
             position: relative
             display: grid
@@ -83,10 +85,14 @@ section.main
                 justify-items: center
                 text-align: center
 
+            svg
+                path
+                    stroke: $footer-gray
+
             &:not(:last-child)
                 border-right: 1px dashed rgba(164, 173, 186, 0.5)
                 padding-right: var(--gap)
-                +screen(m)
+                +screen(s)
                     border-right: unset
                     padding-right: unset
                     padding-bottom: var(--medium-gap)
@@ -99,3 +105,38 @@ section.main
 
                 span
                     color: $white
+
+        &::after
+            content: ''
+            position: absolute
+            top: 50%
+            left: 50%
+            display: block
+            height: calc(50% + var(--gap))
+            width: 100vw
+            background: white
+            transform: translateX(-50%)
+            +screen(s)
+                top: calc(var(--gap) * -1)
+                height: calc(100% + var(--gap) * 2)
+
+    div.params
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        gap: var(--medium-gap) var(--gap)
+        +screen(s)
+            flex-direction: column
+
+        div.param
+            display: grid
+            grid-gap: 10px
+
+            small
+                color: $footer-gray
+
+            h2
+                font-size: 40px
+                color: white
+                +screen(m)
+                    font-size: 30px

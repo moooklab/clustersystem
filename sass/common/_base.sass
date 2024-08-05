@@ -9,12 +9,16 @@
     --small-gap: 20px
     --medium-gap: 40px
     --section-gap: 120px
+    --header: 0px
+    +screen(l)
+        --header: 95px
     +screen(m)
         --gap: 20px
         --big-gap: 40px
         --small-gap: 10px
         --medium-gap: 30px
         --section-gap: 80px
+        --header: 75px
 
 *
     font-family: 'Inter', sans-serif
@@ -25,7 +29,7 @@
         line-height: 1.5em
 
 html
-    padding-left: 90px
+    padding-left: 88px
     +screen(l)
         padding-left: unset
 
