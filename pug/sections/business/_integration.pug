@@ -1,0 +1,29 @@
+section.integration
+    div.container
+
+        h2 Интегрированные #[br]#[span решения.]
+
+        div.tabs
+
+            div.swiper.tabs_captions
+                div.swiper-wrapper
+                    div.swiper-slide Освещение
+                    div.swiper-slide Климат
+                    div.swiper-slide Безопасность
+                    div.swiper-slide Устройства
+                    div.swiper-slide Управление
+
+            div.swiper.tabs_contents
+                div.swiper-wrapper
+                    -for(x=0; x<5; x++)
+                        div.swiper-slide
+                            img(src="images/1.webp", alt="")
+                            div.text
+                                strong Элементы УД
+                                ul.list
+                                    li: b Управление освещением вкл/выкл
+                                    li: b Управление яркостью освещения
+                                    li: b Управление яркостью освещения
+                                    li: b Управление светодиодной подсветкой
+                                    li: b RGB подсветка
+                                    li: b Датчик движения скрытый белый

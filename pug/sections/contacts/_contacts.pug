@@ -1,0 +1,37 @@
+section.contacts
+    div.container
+
+        h1 Контактные #[br] #[span данные]
+
+        div.tabs
+
+            div.swiper.tabs_captions
+                div.swiper-wrapper
+                    div(data-coordinate="[59.908583, 30.511872]").swiper-slide Офис в Москве
+                    div(data-coordinate="[59.912098, 30.489431]").swiper-slide Офис в Санкт-Петербурге
+                    div(data-coordinate="[59.909124, 30.483457]").swiper-slide Шоурум
+
+            div.swiper.tabs_contents
+                div.swiper-wrapper
+                    -for(x=0; x<=2; x++)
+                        div.swiper-slide
+                            div.adress
+                                small Адрес:
+                                h3 г. Москва, ул. Б. Новодмитровская 23, стр. 6
+                            div.row
+                                div.phone
+                                    small Телефон:
+                                    a(href="tel:74994552610"): h3 +7 (499) 455-26-10
+                                div.phone
+                                    small E-mail:
+                                    a(href="mailto:hello@clustersystem.ru"): h3 hello@clustersystem.ru
+                            div.note
+                                small Обязательно #[b приходите к нам на чашку ароматного кофе.] Совместно обсудим ваш проект, #[b продемонстрируем работу системы] умного дома Кластер в нашем шоуруме! Если нужно, проконсультируем по #[b Skype, телефону или почте] – просто напишите нам сообщение и укажите предпочтительный способ для связи.
+                            button.light
+                                span Написать нам
+                                div.borders
+                                    div
+                                    div
+                                    div
+                                    div
+                            

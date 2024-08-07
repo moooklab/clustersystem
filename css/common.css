@@ -190,6 +190,7 @@ h1, h2, h3, h4 {
   display: block;
   font-weight: 500;
   color: #242629;
+  max-width: 960px;
 }
 h1 span, h2 span, h3 span, h4 span {
   font-size: inherit;
@@ -353,6 +354,85 @@ a.project div.details > * {
   grid-gap: 10px;
 }
 
+a.article {
+  position: relative;
+  border-radius: 8px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #242629;
+}
+@media (max-width: 640px) {
+  a.article {
+    aspect-ratio: 1/1;
+  }
+}
+a.article h3 {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+  padding: var(--big-gap);
+  padding-bottom: calc(var(--big-gap) * 2);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0d0f12), to(rgba(20, 22, 34, 0)));
+  background: linear-gradient(180deg, #0d0f12 0%, rgba(20, 22, 34, 0) 100%);
+}
+a.article img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+a.category {
+  display: grid;
+  grid-gap: var(--small-gap);
+  border-radius: 8px;
+  padding: var(--medium-gap) var(--gap);
+  -webkit-box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05);
+          box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05);
+  background: #fff;
+  text-align: center;
+}
+a.category img {
+  aspect-ratio: 3/2;
+  width: 100%;
+  max-height: 240px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+a.product {
+  display: grid;
+  grid-template-rows: -webkit-max-content -webkit-max-content 1fr -webkit-max-content;
+  grid-template-rows: max-content max-content 1fr max-content;
+  grid-gap: var(--small-gap);
+  border-radius: 8px;
+  padding: var(--gap);
+  -webkit-box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05);
+          box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05);
+  background: #fff;
+  text-align: center;
+}
+a.product img {
+  aspect-ratio: 3/2;
+  width: 100%;
+  max-height: 240px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center center;
+     object-position: center center;
+}
+a.product h3 {
+  margin-top: 10px;
+}
+
 button, a.button {
   position: relative;
   cursor: pointer;
@@ -366,6 +446,7 @@ button, a.button {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  margin: 2px;
 }
 @media (max-width: 640px) {
   button, a.button {
@@ -545,15 +626,27 @@ div.swiper-control div.swiper-pagination span {
 div.swiper-control div.swiper-pagination span.swiper-pagination-bullet-active {
   opacity: 1;
 }
+div.swiper-control.dark div.swiper-navigation div.arrow {
+  background: rgba(36, 38, 41, 0.5);
+}
+div.swiper-control.dark div.swiper-navigation div.arrow:hover {
+  background: rgb(36, 38, 41);
+}
+div.swiper-control.dark div.swiper-navigation div.arrow svg path {
+  stroke: white;
+}
+div.swiper-control.dark div.swiper-pagination span {
+  background: #242629;
+}
 
 div.swiper.tabs_captions {
   overflow: visible;
 }
 div.swiper.tabs_captions div.swiper-wrapper {
   border-bottom: 1px solid #a4adba;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 div.swiper.tabs_captions div.swiper-slide {
   cursor: pointer;
@@ -568,6 +661,85 @@ div.swiper.tabs_captions div.swiper-slide.swiper-slide-thumb-active {
 }
 div.swiper.tabs_captions div.swiper-slide:last-child {
   margin-right: 0 !important;
+}
+
+div.breadcrumbs small {
+  color: #a4adba;
+}
+div.breadcrumbs a {
+  position: relative;
+}
+div.breadcrumbs a small {
+  color: #1b1d21;
+}
+div.breadcrumbs a::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1em;
+  left: 50%;
+  height: 1px;
+  width: 100%;
+  background: #1b1d21;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+div.breadcrumbs a:hover::after {
+  width: 0;
+}
+
+ul.list {
+  display: grid;
+  grid-gap: var(--gap);
+  counter-reset: list;
+}
+ul.list li {
+  counter-increment: list;
+  display: grid;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+  grid-gap: var(--gap);
+}
+ul.list li:before {
+  content: counter(list);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  line-height: 1em;
+  margin-top: -7px;
+  background: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='48' ry='48' stroke='rgb(113, 125, 141)' stroke-width='1' stroke-dasharray='4%2c 4' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e") white;
+  border-radius: 48px;
+  z-index: 4;
+}
+ul.list li div.block {
+  display: grid;
+  grid-gap: var(--small-gap);
+}
+
+a.download {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: var(--gap);
+}
+a.download span {
+  color: #242629;
+  text-decoration: underline;
+}
+a.download small {
+  text-decoration: none !important;
+}
+a.download:hover span {
+  text-decoration: none;
 }
 
 header {
@@ -588,12 +760,12 @@ header {
 }
 @media (max-width: 1280px) {
   header {
+    position: sticky;
     height: auto;
     background: unset;
     background-color: #242629;
     width: 100%;
     padding: var(--gap);
-    margin-bottom: -90px;
   }
 }
 header div.container {
@@ -733,6 +905,10 @@ header div.buttons div.button {
   width: 48px;
   height: 48px;
 }
+header.transparent {
+  position: fixed;
+  margin-bottom: -90px;
+}
 @media (max-width: 1280px) {
   header.transparent {
     background-color: transparent;
@@ -839,7 +1015,7 @@ footer div.top div.support {
 }
 footer div.top div.support div.contacts {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: var(--small-gap);
 }
 @media (max-width: 960px) {
   footer div.top div.support br {

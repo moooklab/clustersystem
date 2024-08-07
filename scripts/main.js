@@ -3,6 +3,7 @@ new Swiper('section.projects div.swiper', {
     spaceBetween: 30,
     centeredSlides: true,
     centeredSlidesBounds: true,
+    initialSlide: 1,
     navigation: {
         prevEl: document.querySelector('section.projects div.swiper-navigation > *:first-child'),
         nextEl: document.querySelector('section.projects div.swiper-navigation > *:last-child')
@@ -42,23 +43,47 @@ new Swiper('section.gallery div.swiper', {
     }
 })
 
-
-let tabCaptionsSlider = new Swiper('div.swiper.tabs_captions', {
-    slidesPerView: 'auto',
-    spaceBetween: 40,
-    slideToClickedSlide: true
-})
-
-
-let tabContensSlider = new Swiper('div.swiper.tabs_contents', {
-    autoHeight: true,
-    thumbs: {
-        swiper: tabCaptionsSlider
+new Swiper('section.about div.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+        prevEl: document.querySelector('section.about div.swiper-navigation > *:first-child'),
+        nextEl: document.querySelector('section.about div.swiper-navigation > *:last-child')
+    },
+    pagination: {
+        el: document.querySelector('section.about div.swiper-pagination'),
+        clickable: true
+    }, 
+    breakpoints: {
+        640: {
+            slidesPerView: 2
+        }
     }
 })
 
-tabContensSlider.on('slideChange', () => { tabCaptionsSlider.slideTo(tabContensSlider.activeIndex) })
-tabCaptionsSlider.on('slideChange', () => { tabContensSlider.slideTo(tabCaptionsSlider.activeIndex) })
+tabsBlocks = document.querySelectorAll('div.tabs')
+tabsBlocks.forEach( tabBlock => {
+    let tabCaptionsSlider = new Swiper(tabBlock.querySelector('div.swiper.tabs_captions'), {
+        slidesPerView: 'auto',
+        spaceBetween: 40,
+        slideToClickedSlide: true,
+    })
+    
+    let tabContensSlider = new Swiper(tabBlock.querySelector('div.swiper.tabs_contents'), {
+        autoHeight: true,
+        thumbs: {
+            swiper: tabCaptionsSlider
+        }
+    })
+    
+    tabContensSlider.on('slideChange', () => { tabCaptionsSlider.slideTo(tabContensSlider.activeIndex) })
+    tabCaptionsSlider.on('slideChange', () => { tabContensSlider.slideTo(tabCaptionsSlider.activeIndex) })
+    tabContensSlider.on('click', () => {
+        setTimeout(() => {
+            tabContensSlider.updateAutoHeight(1000)
+        }, 500)
+    })
+})
 
 function handleSlideChange (swiper) {
     var currentSlide = this.realIndex + 1

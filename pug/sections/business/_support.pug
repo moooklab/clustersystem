@@ -1,0 +1,24 @@
+section.support
+    div.container
+
+        h2 Поддержка #[br]#[span и обучение.]
+
+        div.tabs
+
+            div.swiper.tabs_captions
+                div.swiper-wrapper
+                    div.swiper-slide Подряд
+                    div.swiper-slide Поставка оборудования
+                    div.swiper-slide Индивидуальный подход
+
+            div.swiper.tabs_contents
+                div.swiper-wrapper
+                    -for(x=0; x<3; x++)
+                        div.swiper-slide
+                            img(src="images/1.webp", alt="")
+                            div.text
+                                strong Подряд
+                                span #[b Проект:] разрабатываем и согласовываем с заказчиком
+                                span #[b СМР:] собираем щит, устанавливаем и подключаем датчики
+                                span #[b ПНР:] настраиваем сценарии, запускаем систему
+                                span: b Передаем заказчику доступы в стандартное приложение

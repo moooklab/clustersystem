@@ -10,12 +10,12 @@ header
     padding: var(--gap) var(--small-gap)
     transition: all .5s
     +screen(l)
+        position: sticky
         height: auto
         background: unset
         background-color: $dark-gray
         width: 100%
         padding: var(--gap)
-        margin-bottom: -90px
 
     div.container
         display: grid
@@ -114,5 +114,7 @@ header
             height: 48px
 
     &.transparent
+        position: fixed
+        margin-bottom: -90px
         +screen(l)
             background-color: transparent
