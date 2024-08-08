@@ -55,6 +55,14 @@ header
             grid-auto-columns: max-content
             grid-gap: 15px
             color: $white
+            &:hover
+                svg
+                    path
+                        fill: white
+
+            svg
+                path
+                    transition: all .3s
 
             &.email
                 +screen(l)
@@ -105,6 +113,7 @@ header
         +screen(l)
             display: none
         div.button
+            cursor: pointer
             display: grid
             align-items: center
             justify-items: center

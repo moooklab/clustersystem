@@ -71,6 +71,7 @@ tabsBlocks.forEach( tabBlock => {
     
     let tabContensSlider = new Swiper(tabBlock.querySelector('div.swiper.tabs_contents'), {
         autoHeight: true,
+        spaceBetween: 30,
         thumbs: {
             swiper: tabCaptionsSlider
         }

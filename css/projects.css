@@ -52,12 +52,6 @@ section.main div.intro div.text {
   display: grid;
   grid-gap: var(--medium-gap);
 }
-section.main div.intro div.text h1, section.main div.intro div.text h3 {
-  color: #fff;
-}
-section.main div.intro div.text h1 span, section.main div.intro div.text h3 span {
-  color: #a4adba;
-}
 section.main div.intro div.title {
   display: grid;
   grid-gap: 10px;
@@ -200,12 +194,6 @@ section.projects div.container {
   display: grid;
   grid-gap: var(--big-gap);
   grid-column: breakout;
-}
-section.projects h2 {
-  color: white;
-}
-section.projects h2 span {
-  color: #a4adba;
 }
 section.projects div.list {
   display: grid;

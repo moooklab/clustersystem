@@ -52,12 +52,6 @@ section.main div.intro div.text {
   display: grid;
   grid-gap: var(--medium-gap);
 }
-section.main div.intro div.text h1, section.main div.intro div.text h3 {
-  color: #fff;
-}
-section.main div.intro div.text h1 span, section.main div.intro div.text h3 span {
-  color: #a4adba;
-}
 section.main div.intro div.title {
   display: grid;
   grid-gap: 10px;
@@ -263,6 +257,10 @@ section.services div.service {
   padding: var(--gap);
   border-radius: 8px;
 }
+section.services div.service:nth-child(2n) {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
 section.services div.service div.description {
   display: grid;
   -webkit-box-align: center;
@@ -308,20 +306,10 @@ section.services div.service div.description a.more {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  justify-self: end;
+  justify-items: end;
   grid-template-columns: -webkit-max-content -webkit-max-content;
   grid-template-columns: max-content max-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  color: #fff;
-  background: #242629;
-  border-radius: 20px;
-  height: 40px;
-  min-width: 40px;
+  justify-self: end;
 }
 @media (max-width: 1460px) {
   section.services div.service div.description a.more {
@@ -333,9 +321,38 @@ section.services div.service div.description a.more {
     grid-column: 1 span;
   }
 }
+section.services div.service div.description a.more:hover small {
+  max-width: 200px;
+  padding: 0 20px;
+}
 section.services div.service div.description a.more small {
-  text-transform: lowercase;
-  display: none;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  max-width: 0px;
+  overflow: hidden;
+  padding: 0;
+  margin-right: -20px;
+  border-radius: 20px;
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+  background: #242629;
+  color: white;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+section.services div.service div.description a.more div.arrow {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  background: #242629;
 }
 section.services div.service div.description a.more svg path {
   stroke: #fff;
@@ -610,19 +627,39 @@ section.showroom div.video img.preview {
   -o-object-position: center center;
      object-position: center center;
 }
-section.showroom div.video img.play {
+section.showroom div.video div.play {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  -webkit-animation-name: showroom_play;
+          animation-name: showroom_play;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 @media (max-width: 640px) {
-  section.showroom div.video img.play {
+  section.showroom div.video div.play {
     width: 60px;
     height: 60px;
   }
+}
+section.showroom div.video div.play svg {
+  width: 100%;
+  height: 100%;
+}
+section.showroom div.video div.play svg path {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+section.showroom div.video div.play:hover svg path {
+  fill: white;
 }
 section.showroom div.pins {
   display: grid;
@@ -635,6 +672,7 @@ section.showroom div.pins {
   }
 }
 section.showroom div.pins div.pin {
+  cursor: pointer;
   display: grid;
   grid-gap: var(--small-gap);
   justify-items: center;
@@ -642,6 +680,10 @@ section.showroom div.pins div.pin {
   border-radius: 8px;
   padding: var(--medium-gap) var(--gap);
   background: rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0);
+          box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 section.showroom div.pins div.pin a {
   display: grid;
@@ -662,7 +704,82 @@ section.showroom div.pins div.pin a:hover svg path {
 section.showroom div.pins div.pin a svg path {
   stroke: #a4adba;
 }
+section.showroom div.pins div.pin:hover {
+  -webkit-box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0.3);
+          box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0.3);
+}
+section.showroom div.pins div.pin:hover img {
+  -webkit-transform-origin: bottom center;
+      -ms-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-animation-name: showroom_icon;
+          animation-name: showroom_icon;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  animation-timeline: ease;
+}
 
+@-webkit-keyframes showroom_icon {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  50% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes showroom_icon {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  50% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes showroom_play {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.15);
+            transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes showroom_play {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.15);
+            transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
 section.projects {
   padding-top: var(--section-gap);
   padding-bottom: var(--section-gap);
@@ -670,12 +787,8 @@ section.projects {
   color: #fff;
 }
 section.projects h2 {
-  color: #fff;
   grid-column: breakout;
   margin-bottom: var(--big-gap);
-}
-section.projects h2 span {
-  color: #a4adba;
 }
 section.projects div.swiper {
   width: 100%;
@@ -743,6 +856,7 @@ section.about div.container {
 section.about div.text {
   display: grid;
   grid-gap: var(--gap);
+  max-width: 960px;
 }
 section.about div.swiper {
   width: 100%;

@@ -34,14 +34,30 @@ section.showroom
             height: 100%
             object-fit: cover
             object-position: center center
-        img.play
+        div.play
+            cursor: pointer
             position: absolute
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
+            animation-name: showroom_play
+            animation-duration: 1s
+            animation-iteration-count: infinite
+            animation-fill-mode: forwards
             +screen(s)
                 width: 60px
                 height: 60px
+
+            svg
+                width: 100%
+                height: 100%
+                path
+                    transition: all .2s
+
+            &:hover
+                svg
+                    path
+                        fill: white
 
     div.pins
         display: grid
@@ -51,6 +67,7 @@ section.showroom
             grid-template-columns: 1fr
 
         div.pin
+            cursor: pointer
             display: grid
             grid-gap: var(--small-gap)
             justify-items: center
@@ -58,7 +75,8 @@ section.showroom
             border-radius: 8px
             padding: var(--medium-gap) var(--gap)
             background: rgba(255, 255, 255, 0.05)
-
+            box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0)
+            transition: all .3s
             a
                 display: grid
                 align-items: center
@@ -74,3 +92,29 @@ section.showroom
                 svg
                     path
                         stroke: $footer-gray
+
+            &:hover
+                box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0.3)
+                img
+                    transform-origin: bottom center
+                    animation-name: showroom_icon
+                    animation-duration: 1s
+                    animation-iteration-count: infinite
+                    animation-fill-mode: forwards
+                    animation-timeline: ease
+
+@keyframes showroom_icon
+    0%
+        transform: translateY(0%)
+    50%
+        transform: translateY(-15%)
+    100%
+        transform: translateY(0%)
+
+@keyframes showroom_play
+    0%
+        transform: translate(-50%, -50%) scale(1)
+    50%
+        transform: translate(-50%, -50%) scale(1.15)
+    100%
+        transform: translate(-50%, -50%) scale(1)

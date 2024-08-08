@@ -26,23 +26,31 @@
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/business.css">
         <script defer src="scripts/swiper/swiper.min.js"></script>
+        <script defer src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
         <script defer src="scripts/main.js"></script>
         <script defer src="scripts/phone.js"></script>
         <script defer src="scripts/modal.js"></script>
         <script defer src="scripts/accordion.js"></script>
+        <script defer src="scripts/observer.js"></script>
     </head>
     <body>
         <header>
             <div class="container">
-                <div class="contacts"><a class="logotype" href="index.html"><img class="symbol" src="images/logotype_symbol_white.svg" alt=""><img class="full" src="images/logotype.svg" alt=""></a><a class="phone" href="tel:84994552610"><img src="images/phone.svg" alt=""><span>+7 (499) 455-26-10</span></a><a class="email" href="mailto:hello@clustersystem.ru"><img src="images/email.svg" alt=""></a></div>
-                <div class="menu">
+                <div class="contacts"><a class="logotype" href="index.html"><img class="symbol" src="images/logotype_symbol_white.svg" alt=""><img class="full" src="images/logotype.svg" alt=""></a><a class="phone" href="tel:84994552610"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.13689 1.58903C6.92987 1.23739 6.57171 1.00115 6.16646 0.949823C5.7615 0.898211 5.35569 1.03689 5.067 1.32558C4.24404 2.14854 3.1979 3.19468 2.59868 3.79389C2.29071 4.10187 2.15431 4.54228 2.23456 4.97021C3.52799 11.4861 9.3378 17.0339 15.358 18.0925C15.7757 18.1609 16.2008 18.0239 16.5003 17.7245C17.0978 17.1326 18.1499 16.0805 18.9785 15.2519C19.2681 14.9623 19.4071 14.5545 19.3543 14.1484C19.3013 13.7421 19.0631 13.3836 18.7089 13.178C17.7279 12.6077 16.4751 11.8789 15.6487 11.3985C15.1312 11.0976 14.4758 11.183 14.0524 11.6064C13.9565 11.7022 13.859 11.7998 13.7654 11.8934C13.3772 12.2816 12.7893 12.3891 12.2891 12.1633C10.4665 11.3316 9.13645 9.97662 8.27294 8.12396C8.04011 7.62286 8.14504 7.03017 8.53582 6.63939C8.6209 6.54751 8.71251 6.4559 8.80297 6.36544C9.22835 5.94006 9.31199 5.28073 9.00686 4.76234C8.50434 3.90932 7.7327 2.60001 7.13689 1.58903Z" fill="#A4ADBA"/>
+</svg>
+<span>+7 (499) 455-26-10</span></a><a class="email" href="mailto:hello@clustersystem.ru"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.3056 6.92063L11.874 11.8746C10.6516 12.6898 9.06362 12.7066 7.82402 11.9178L0.400024 7.19341V15.5446C0.400024 16.3162 1.02643 16.943 1.79843 16.943H17.9068C18.6788 16.943 19.3056 16.3162 19.3056 15.5446V6.92063ZM0.400024 5.24421L8.70723 10.5306C9.39723 10.9698 10.2812 10.9602 10.962 10.5066L19.3056 4.94421V4.35581C19.3056 3.58381 18.6788 2.95703 17.9068 2.95703H1.79843C1.02643 2.95703 0.400024 3.58381 0.400024 4.35581V5.24421Z" fill="#A4ADBA"/>
+</svg>
+</a></div>
+                <div class="menu" data-modal-target="menu">
                     <div class="icon">
                         <div></div>
                         <div></div>
                     </div>
                 </div>
                 <div class="buttons">
-                    <div class="button"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="button" data-modal-target="calculate"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M33 4.80709C33 2.70452 31.2924 1 29.1859 1C23.0294 1 10.9706 1 4.81393 1C2.70762 1 1 2.70452 1 4.80709C1 10.9639 1 23.0361 1 29.1929C1 31.2955 2.70762 33 4.81393 33C10.9706 33 23.0294 33 29.1859 33C31.2924 33 33 31.2955 33 29.1929C33 23.0361 33 10.9639 33 4.80709Z" stroke="white" stroke-width="1.00359" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M1 17H32.9999" stroke="white" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M17 1V33" stroke="white" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -56,7 +64,7 @@
 </svg>
 
                     </div>
-                    <div class="button"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="button" data-modal-target="showroom"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.2285 6.75586V13.3171" stroke="white" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.2285 18.0938V25.3764" stroke="white" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.2285 29.7832V32.9994" stroke="white" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -75,8 +83,8 @@
                     <div class="intro">
                         <div class="text">
                             <div class="title">
-                                <h1><span>Умный дом</span> для Бизнеса</h1>
-                            </div><span>Даст новые возможности для ваших арендаторов, а вам поможет упростить администрирование и оптимизировать эксплуатационные расходы</span>
+                                <h1 class="light"><span>Умный дом</span> для Бизнеса</h1>
+                            </div><span class="observe aft">Даст новые возможности для ваших арендаторов, а вам поможет упростить администрирование и оптимизировать эксплуатационные расходы</span>
                         </div>
                         <button><span>Узнать больше</span>
                             <div class="borders">
@@ -126,7 +134,7 @@
                         <div class="swiper tabs_contents">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide"><img src="images/1.webp" alt="">
-                                    <div class="text"><strong>Элементы УД</strong>
+                                    <div class="text observe afl"><strong>Элементы УД</strong>
                                         <ul class="list">
                                             <li><b>Управление освещением вкл/выкл</b></li>
                                             <li><b>Управление яркостью освещения</b></li>
@@ -138,7 +146,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide"><img src="images/1.webp" alt="">
-                                    <div class="text"><strong>Элементы УД</strong>
+                                    <div class="text observe afl"><strong>Элементы УД</strong>
                                         <ul class="list">
                                             <li><b>Управление освещением вкл/выкл</b></li>
                                             <li><b>Управление яркостью освещения</b></li>
@@ -150,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide"><img src="images/1.webp" alt="">
-                                    <div class="text"><strong>Элементы УД</strong>
+                                    <div class="text observe afl"><strong>Элементы УД</strong>
                                         <ul class="list">
                                             <li><b>Управление освещением вкл/выкл</b></li>
                                             <li><b>Управление яркостью освещения</b></li>
@@ -162,7 +170,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide"><img src="images/1.webp" alt="">
-                                    <div class="text"><strong>Элементы УД</strong>
+                                    <div class="text observe afl"><strong>Элементы УД</strong>
                                         <ul class="list">
                                             <li><b>Управление освещением вкл/выкл</b></li>
                                             <li><b>Управление яркостью освещения</b></li>
@@ -174,7 +182,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide"><img src="images/1.webp" alt="">
-                                    <div class="text"><strong>Элементы УД</strong>
+                                    <div class="text observe afl"><strong>Элементы УД</strong>
                                         <ul class="list">
                                             <li><b>Управление освещением вкл/выкл</b></li>
                                             <li><b>Управление яркостью освещения</b></li>
@@ -191,11 +199,11 @@
                 </div>
             </section>
             <section class="projects">
-                <h2><span>Выполненные</span> <br>проекты.</h2>
+                <h2 class="light"><span>Выполненные</span> <br>проекты.</h2>
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/1.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -204,8 +212,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/2.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -214,8 +222,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/3.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -224,8 +232,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/4.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -234,8 +242,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/5.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -244,8 +252,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/6.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -254,8 +262,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/1.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -264,8 +272,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/2.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -274,8 +282,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/3.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -284,8 +292,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/4.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -294,8 +302,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/5.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -304,8 +312,8 @@
                                                 <div class="area"><small>Стоимость</small><strong>580 000 ₽</strong></div>
                                             </div></a>
                         </div>
-                        <div class="swiper-slide"><a class="project" href="index.html">
-                                            <div class="preview"><img src="images/1.webp" alt="">
+                        <div class="swiper-slide"><a class="project" href="project.html">
+                                            <div class="preview"><img src="images/projects/6.webp" alt="">
                                                 <div class="tags"><small>Освещение</small><small>Электрокарнизы</small><small>Климат-контроль</small><small>Сигнализация</small><small>Видеонаблюдение</small></div>
                                             </div>
                                             <div class="description"><strong>Трехкомнатная квартира <br/>в ЖК «Юнион-Парк»</strong><span>Большая квартира, соединенная из двух соседних апартаментов для семьи из четырех человек.</span></div>
@@ -338,8 +346,8 @@
                         <h3>Посетите наш</h3>
                         <h2>ШОУРУМ.</h2>
                     </div>
-                    <p>Наш шоурум представляет из себя <span>полноценную квартиру-офис</span>, оснащенную системой умного дома, где <span>вы с комфортом сможете посмотреть на возможности системы</span> умного дома Кластер</p>
-                    <button><span>Записаться в шоурум</span>
+                    <p class="observe aft">Наш шоурум представляет из себя <span>полноценную квартиру-офис</span>, оснащенную системой умного дома, где <span>вы с комфортом сможете посмотреть на возможности системы</span> умного дома Кластер</p>
+                    <button data-modal-target="showroom"><span>Записаться в шоурум</span>
                         <div class="borders">
                             <div></div>
                             <div></div>
@@ -348,7 +356,14 @@
                         </div>
                     </button>
                 </div>
-                <div class="video"><img class="preview" src="images/1.webp" alt=""><img class="play" src="images/play.svg" alt=""></div>
+                <div class="video"><img class="preview" src="images/1.webp" alt="">
+                    <div class="play" data-modal-target="video" data-video-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"><svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="60" cy="60" r="59.5" stroke="white"/>
+<path d="M79.1048 59.2384C79.5742 59.6377 79.5742 60.3623 79.1048 60.7616L53.148 82.8465C52.4986 83.399 51.5 82.9375 51.5 82.0849L51.5 37.9151C51.5 37.0625 52.4986 36.6009 53.148 37.1535L79.1048 59.2384Z" fill="#D9D9D9"/>
+</svg>
+
+                    </div>
+                </div>
                 <div class="pins">
                     <div class="pin"><img src="images/pin.svg" alt=""><span>Москва, Ленинградский пр. 36 с. 40, ЖК ВТБ Арена Парк</span><a><small>на карте</small><svg width="9" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M2.5 1L7 5.5L2.5 10" stroke="#242629" stroke-width="1.5" stroke-linecap="round"/>
@@ -390,7 +405,7 @@
             <section class="faq">
                 <div class="container">
                     <h2><span>Часто задаваемые</span> <br>вопросы.</h2>
-                    <div class="list">
+                    <div class="list observe aft">
                                     <div class="accordion">
                                         <div class="accordion_caption"><strong>Что будет, если отключат электричество?</strong>
                                             <div class="icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -588,12 +603,12 @@
             <div class="container">
                 <div class="top">
                     <div class="logo"><a href="index.html"><img src="images/logotype.svg" alt=""></a></div>
-                    <div class="apps"><a href="index.html"><img src="images/googleplay.svg" alt=""></a><a href="index.html"><img src="images/appstore.svg" alt=""></a></div>
+                    <div class="apps"><a href="https://apps.apple.com/us/app/id1528305720" target="blank"><img src="images/googleplay.svg" alt=""></a><a href="https://play.google.com/store/apps/details?id=ru.clustersystem.Cluster25" target="blank"><img src="images/appstore.svg" alt=""></a></div>
                     <div class="menu services"><strong>Возможности</strong>
-                        <div><a href="index.html">Освещение</a><a href="index.html">Безопасность</a><a href="index.html">Мультимедиа</a><a href="index.html">Климатконтроль</a><a href="index.html">Сеть и бесшовный Wi-Fi</a><a href="index.html">Устройства</a><a href="index.html">Умный дом</a><a href="index.html">Готовые решения</a></div>
+                        <div><a href="service.html">Освещение</a><a href="service.html">Безопасность</a><a href="service.html">Мультимедиа</a><a href="service.html">Климатконтроль</a><a href="service.html">Сеть и бесшовный Wi-Fi</a><a href="service.html">Устройства</a><a href="service.html">Умный дом</a><a href="service.html">Готовые решения</a></div>
                     </div>
                     <div class="menu information"><strong>Информация</strong>
-                        <div><a href="index.html">О системе</a><a href="index.html">Производство</a><a href="index.html">Проектирование</a><a href="index.html">Монтаж</a><a href="index.html">О компании</a><a href="index.html">Проекты</a><a href="index.html">Контакты</a><a href="index.html">Блог</a></div>
+                        <div><a href="information.html">О системе</a><a href="information.html">Производство</a><a href="information.html">Проектирование</a><a href="information.html">Монтаж</a><a href="information.html">О компании</a><a href="projects.html">Проекты</a><a href="contacts.html">Контакты</a><a href="articles.html">Блог</a></div>
                     </div>
                     <div class="support"><strong>Обратиться в службу <br>поддержки</strong>
                         <div class="contacts"><a href="tel:84994552610"><img src="images/phone.svg" alt=""><span>+7 (499) 455-26-10</span></a><a href="mailto:hello@clustersystem.ru"><img src="images/email.svg" alt=""><span>hello@clustersystem.ru</span></a></div>

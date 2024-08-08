@@ -23,6 +23,8 @@ section.services
         background: $white
         padding: var(--gap)
         border-radius: 8px
+        &:nth-child(2n)
+            animation-delay: .25s
 
         div.description
             display: grid
@@ -52,23 +54,42 @@ section.services
             a.more
                 display: grid
                 align-items: center
-                justify-content: center
-                justify-self: end
+                justify-items: end
                 grid-template-columns: max-content max-content
-                width: max-content
-                color: $white
-                background: $dark-gray
-                border-radius: 20px
-                height: 40px
-                min-width: 40px
+                justify-self: end
                 +screen(1460px)
                     grid-column: 2 span
                 +screen(s)
                     grid-column: 1 span
 
+                &:hover
+                    small
+                        max-width: 200px
+                        padding: 0 20px
+
                 small
-                    text-transform: lowercase
-                    display: none
+                    display: grid
+                    align-items: center
+                    height: 40px
+                    max-width: 0px
+                    overflow: hidden
+                    padding: 0
+                    margin-right: -20px
+                    border-radius: 20px
+                    border-top-right-radius: unset
+                    border-bottom-right-radius: unset
+                    background: $dark-gray
+                    color: white
+                    transition: all .3s
+
+                div.arrow
+                    display: grid
+                    align-items: center
+                    justify-items: center
+                    border-radius: 20px
+                    height: 40px
+                    width: 40px
+                    background: $dark-gray
                 svg
                     path
                         stroke: $white

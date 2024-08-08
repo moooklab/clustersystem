@@ -52,12 +52,6 @@ section.main div.intro div.text {
   display: grid;
   grid-gap: var(--medium-gap);
 }
-section.main div.intro div.text h1, section.main div.intro div.text h3 {
-  color: #fff;
-}
-section.main div.intro div.text h1 span, section.main div.intro div.text h3 span {
-  color: #a4adba;
-}
 section.main div.intro div.title {
   display: grid;
   grid-gap: 10px;
@@ -272,7 +266,7 @@ section.gallery div.container {
 }
 section.gallery div.swiper {
   width: 100%;
-  height: 75vh;
+  height: 85vh;
   min-width: 0;
 }
 section.gallery div.swiper img {
@@ -296,6 +290,7 @@ section.gallery div.counter {
   top: var(--big-gap);
   right: var(--big-gap);
   z-index: 5;
+  text-shadow: 0px 0px 150px rgb(0, 0, 0), 0px 0px 200px rgb(0, 0, 0);
 }
 @media (max-width: 960px) {
   section.gallery div.counter {
@@ -324,7 +319,8 @@ section.gallery div.counter span.total {
   font-weight: 500;
   font-size: 28px;
   line-height: 175%;
-  color: #a4adba;
+  color: #fff;
+  opacity: 0.5;
 }
 @media (max-width: 960px) {
   section.gallery div.counter span.total {
@@ -399,19 +395,39 @@ section.showroom div.video img.preview {
   -o-object-position: center center;
      object-position: center center;
 }
-section.showroom div.video img.play {
+section.showroom div.video div.play {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  -webkit-animation-name: showroom_play;
+          animation-name: showroom_play;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 @media (max-width: 640px) {
-  section.showroom div.video img.play {
+  section.showroom div.video div.play {
     width: 60px;
     height: 60px;
   }
+}
+section.showroom div.video div.play svg {
+  width: 100%;
+  height: 100%;
+}
+section.showroom div.video div.play svg path {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+section.showroom div.video div.play:hover svg path {
+  fill: white;
 }
 section.showroom div.pins {
   display: grid;
@@ -424,6 +440,7 @@ section.showroom div.pins {
   }
 }
 section.showroom div.pins div.pin {
+  cursor: pointer;
   display: grid;
   grid-gap: var(--small-gap);
   justify-items: center;
@@ -431,6 +448,10 @@ section.showroom div.pins div.pin {
   border-radius: 8px;
   padding: var(--medium-gap) var(--gap);
   background: rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0);
+          box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 section.showroom div.pins div.pin a {
   display: grid;
@@ -451,7 +472,82 @@ section.showroom div.pins div.pin a:hover svg path {
 section.showroom div.pins div.pin a svg path {
   stroke: #a4adba;
 }
+section.showroom div.pins div.pin:hover {
+  -webkit-box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0.3);
+          box-shadow: 0 20px 50px 0 rgba(20, 20, 26, 0.3);
+}
+section.showroom div.pins div.pin:hover img {
+  -webkit-transform-origin: bottom center;
+      -ms-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-animation-name: showroom_icon;
+          animation-name: showroom_icon;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  animation-timeline: ease;
+}
 
+@-webkit-keyframes showroom_icon {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  50% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes showroom_icon {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  50% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes showroom_play {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.15);
+            transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes showroom_play {
+  0% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.15);
+            transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
 section.projects {
   padding-top: var(--section-gap);
   padding-bottom: var(--section-gap);
@@ -459,12 +555,8 @@ section.projects {
   color: #fff;
 }
 section.projects h2 {
-  color: #fff;
   grid-column: breakout;
   margin-bottom: var(--big-gap);
-}
-section.projects h2 span {
-  color: #a4adba;
 }
 section.projects div.swiper {
   width: 100%;

@@ -3,8 +3,8 @@ section.showroom
         div.title
             h3 Посетите наш
             h2 ШОУРУМ.
-        p Наш шоурум представляет из себя #[span полноценную квартиру-офис], оснащенную системой умного дома, где #[span вы с комфортом сможете посмотреть на возможности системы] умного дома Кластер
-        button
+        p.observe.aft Наш шоурум представляет из себя #[span полноценную квартиру-офис], оснащенную системой умного дома, где #[span вы с комфортом сможете посмотреть на возможности системы] умного дома Кластер
+        button(data-modal-target="showroom")
             span Записаться в шоурум
             div.borders
                 div
@@ -13,7 +13,8 @@ section.showroom
                 div
     div.video
         img(src="images/1.webp", alt="").preview
-        img(src="images/play.svg", alt="").play
+        div(data-modal-target="video", data-video-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4").play
+            include ../../images/play.svg
     div.pins
         div.pin
             img(src="images/pin.svg", alt="")

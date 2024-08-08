@@ -7,7 +7,25 @@ h1, h2, h3, h4
         font-size: inherit
         font-weight: inherit
         line-height: inherit
-        color: $gray
+        // color: $gray
+        // Animation
+        color: transparent
+        background-image: linear-gradient(90deg, $gray 50%, transparent 50%)
+        background-position: 100%
+        background-size: 200% 100%
+        background-clip: text
+        -webkit-background-clip: text
+        transition-property: background-position
+        transition-duration: 1s
+
+    &.light
+        color: $white
+        span
+            background-image: linear-gradient(90deg, $footer-gray 50%, transparent 50%)
+
+    &.animate
+        span
+            background-position: 0
 
 h1
     font-size: 100px
@@ -121,6 +139,11 @@ a.article
     +screen(s)
         aspect-ratio: 1 / 1
 
+    &:hover
+        img
+            opacity: 0.5
+            transform: scale(1.025)
+
     h3
         position: relative
         color: $white
@@ -138,6 +161,7 @@ a.article
         z-index: 0
         object-fit: cover
         object-position: center center
+        transition: all .5s
 
 a.category
     display: grid
@@ -147,6 +171,12 @@ a.category
     box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05)
     background: $white
     text-align: center
+    transition: all .3s
+
+    &:hover
+        box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.15)
+        img
+            transform: scale(1.05)
 
     img
         aspect-ratio: 3 / 2
@@ -154,6 +184,7 @@ a.category
         max-height: 240px
         object-fit: contain
         object-position: center center
+        transition: all .3s
 
 a.product
     display: grid
@@ -164,6 +195,12 @@ a.product
     box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.05)
     background: $white
     text-align: center
+    transition: all .3s
+
+    &:hover
+        box-shadow: 10px 10px 30px 0 rgba(32, 64, 94, 0.15)
+        img
+            transform: scale(1.05)
 
     img
         aspect-ratio: 3 / 2
@@ -171,6 +208,7 @@ a.product
         max-height: 240px
         object-fit: contain
         object-position: center center
+        transition: all .3s
 
     h3
         margin-top: 10px
@@ -409,6 +447,87 @@ a.download
     &:hover
         span
             text-decoration: none
+
+*.afl
+    opacity: 0
+    transform: translateX(-30px)
+    animation-name: hideLeftElement
+    animation-duration: 1s
+    animation-fill-mode: forwards
+    &.animate
+        animation-name: showLeftElement
+        animation-duration: 1s
+        animation-fill-mode: forwards
+
+*.afr
+    opacity: 0
+    transform: translateX(30px)
+    animation-name: hideRightElement
+    animation-duration: 1s
+    animation-fill-mode: forwards
+    &.animate
+        animation-name: showRightElement
+        animation-duration: 1s
+        animation-fill-mode: forwards
+
+*.aft
+    opacity: 0
+    transform: translateY(-30px)
+    animation-name: hideTopElement
+    animation-duration: 1s
+    animation-fill-mode: forwards
+    &.animate
+        animation-name: showTopElement
+        animation-duration: 1s
+        animation-fill-mode: forwards
+
+@keyframes hideLeftElement
+    0%
+        opacity: 1
+        transform: translateX(0px)
+    100%
+        opacity: 0
+        transform: translateX(-30px)
+
+@keyframes showLeftElement
+    0%
+        opacity: 0
+        transform: translateX(-30px)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes hideRightElement
+    0%
+        opacity: 1
+        transform: translateX(0px)
+    100%
+        opacity: 0
+        transform: translateX(30px)
+
+@keyframes showRightElement
+    0%
+        opacity: 0
+        transform: translateX(30px)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes hideTopElement
+    0%
+        opacity: 1
+        transform: translateY(0px)
+    100%
+        opacity: 0
+        transform: translateY(-30px)
+
+@keyframes showTopElement
+    0%
+        opacity: 0
+        transform: translateY(-30px)
+    100%
+        opacity: 1
+        transform: translateY(0px)
 
 // @keyframes widthAnimation
 //     0%

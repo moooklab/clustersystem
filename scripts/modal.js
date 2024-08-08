@@ -30,7 +30,7 @@ buttons.forEach( button => {
         event.preventDefault()
         target = button.getAttribute(buttonAttribute)
         video = button.getAttribute(videoAttribute)
-        createDialog(target)
+        createDialog(target, video)
     })
 })
 
@@ -84,6 +84,13 @@ const createDialog = (target, video = null) => {
         if(element.target === dialog) {
             dialog.remove()
         }
+    })
+
+    var animateElements = document.querySelectorAll('h1, h2, h3')
+    animateElements.forEach( element => {
+        setTimeout(() => {
+            observer.observe(element)
+        }, 1000)
     })
 
 }
